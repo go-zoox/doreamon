@@ -13,18 +13,18 @@ func (auth BearerAuth) parse(authorization string) (token string, ok bool) {
 	return token, true
 }
 
-func (auth BearerAuth) Validate(authorization, token string) (ok bool) {
+func (auth BearerAuth) Validate(authorization, token string) bool {
 	if authorization == "" {
-		return
+		return false
 	}
 
 	_token, ok := auth.parse(authorization)
 	if !ok {
-		return
+		return false
 	}
 
 	if token != _token {
-		return
+		return false
 	}
 
 	return true
