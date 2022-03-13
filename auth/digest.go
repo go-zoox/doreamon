@@ -3,6 +3,8 @@ package auth
 import (
 	"fmt"
 	"strings"
+
+	"github.com/go-zoox/crypto/md5"
 )
 
 type DigestAuth struct {
